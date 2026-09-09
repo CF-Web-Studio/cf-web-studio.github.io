@@ -7,9 +7,9 @@
  */
 
 const URLS: Record<string, string> = {
-  essencial: 'cadus2.github.io/Essencial-Forno-Nobile-Pizzaria',
-  profissional: 'cadus2.github.io/Forno-Nobile-Pizzaria',
-  premium: 'cadus2.github.io/Premium-Forno-Nobile-Pizzaria',
+  essencial: 'cf-web-studio.github.io/forno-nobile/essencial',
+  profissional: 'cf-web-studio.github.io/forno-nobile/profissional',
+  premium: 'cf-web-studio.github.io/forno-nobile/premium',
 };
 
 export function TierPreview({ tier }: { tier: string }) {

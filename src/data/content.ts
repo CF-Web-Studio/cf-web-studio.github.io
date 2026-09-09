@@ -185,7 +185,7 @@ export const TIERS: Tier[] = [
       'Contato direto no WhatsApp',
       'Metadados e favicon',
     ],
-    demoUrl: 'https://cadus2.github.io/Essencial-Forno-Nobile-Pizzaria/',
+    demoUrl: 'https://cf-web-studio.github.io/forno-nobile/essencial/',
     demoLabel: 'Ver nível Essencial',
   },
   {
@@ -203,7 +203,7 @@ export const TIERS: Tier[] = [
       'SEO técnico e dados estruturados',
       'Analytics configurado',
     ],
-    demoUrl: 'https://cadus2.github.io/Forno-Nobile-Pizzaria/',
+    demoUrl: 'https://cf-web-studio.github.io/forno-nobile/profissional/',
     demoLabel: 'Ver nível Profissional',
   },
   {
@@ -221,7 +221,7 @@ export const TIERS: Tier[] = [
       'Interações sob medida',
       'QA ampliado em múltiplos dispositivos',
     ],
-    demoUrl: 'https://cadus2.github.io/Premium-Forno-Nobile-Pizzaria/',
+    demoUrl: 'https://cf-web-studio.github.io/forno-nobile/premium/',
     demoLabel: 'Ver nível Premium',
   },
 ];

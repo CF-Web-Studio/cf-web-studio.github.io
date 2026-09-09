@@ -21,14 +21,22 @@ export function Method() {
   const [active, setActive] = useState(0);
   const reduced = useReducedMotion();
 
+  // Cada etapa recebe sua própria janela de scroll (entrada -> estável -> leitura -> transição)
+  // e a última etapa (Entrega) mantém um hold dedicado no final, para que nada seja cortado
+  // ou avance antes do tempo de leitura.
+  const PER_STEP_VH = 60;
+  const HEAD_START = 0.45; // a etapa 01 já nasce parcialmente desenhada
+  const HOLD_VH = 80; // hold da Entrega após 100% do desenho, antes da próxima seção assumir
+  const TOTAL_SCROLL_VH = METHOD.length * PER_STEP_VH + HOLD_VH;
+
   useScrollProgress(sectionRef, (p) => {
     // com movimento reduzido o desenho já nasce completo: o scroll não escreve nada
     if (reduced) return;
     const host = stageHostRef.current;
     if (!host) return;
 
-    // a etapa 01 já nasce desenhada: a ideia existe antes do scroll
-    const t = 0.55 + clamp(p / 0.86) * METHOD.length;
+    const scrolledVh = p * TOTAL_SCROLL_VH;
+    const t = clamp(scrolledVh / PER_STEP_VH + HEAD_START, 0, METHOD.length);
     for (let i = 0; i < METHOD.length; i++) {
       host.style.setProperty(`--s${i + 1}`, clamp(t - i).toFixed(3));
     }
@@ -37,7 +45,7 @@ export function Method() {
   });
 
   const stageVars = Object.fromEntries(
-    METHOD.map((_, i) => [`--s${i + 1}`, reduced ? '1' : i === 0 ? '0.55' : '0']),
+    METHOD.map((_, i) => [`--s${i + 1}`, reduced ? '1' : i === 0 ? '0.45' : '0']),
   ) as Record<string, string>;
 
   const current = METHOD[active];
@@ -46,7 +54,7 @@ export function Method() {
     <section
       ref={sectionRef}
       id="metodo"
-      className={`cf-surface-dark relative ${reduced ? '' : 'min-h-[300svh] lg:min-h-[380svh]'}`}
+      className={`cf-surface-dark relative ${reduced ? '' : 'min-h-[600svh]'}`}
     >
       <div
         ref={stageHostRef}
