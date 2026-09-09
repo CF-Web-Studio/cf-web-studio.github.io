@@ -1,4 +1,5 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { startMotion, stopMotion } from './lib/motion';
 import { Capabilities } from './components/Capabilities';
 import { Contact } from './components/Contact';
 import { Differentials } from './components/Differentials';
@@ -18,6 +19,11 @@ import { useRevealRoot } from './lib/hooks';
 export default function App() {
   const rootRef = useRef<HTMLDivElement>(null);
   useRevealRoot(rootRef);
+
+  useEffect(() => {
+    startMotion();
+    return () => stopMotion();
+  }, []);
 
   return (
     <div ref={rootRef}>

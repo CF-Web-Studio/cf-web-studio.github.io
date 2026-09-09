@@ -1,5 +1,6 @@
 import { ENGINEERING } from '../data/content';
 import { Chapter } from './primitives';
+import { ScrollMedia } from './ScrollMedia';
 
 export function Engineering() {
   return (
@@ -30,8 +31,8 @@ export function Engineering() {
                 style={{ ['--reveal-delay' as string]: '180ms' }}
               >
                 {[
-                  ['Dependências no runtime', 'React e nada mais'],
-                  ['Gráfico do topo', 'gerado em código'],
+                  ['Bibliotecas no runtime', 'React, Lenis, GSAP — nada além'],
+                  ['Núcleo do hero', 'render + arte-final integrados'],
                   ['Loop de animação', 'um só, compartilhado'],
                   ['Fora da viewport', 'render suspenso'],
                 ].map(([k, v]) => (
@@ -41,6 +42,24 @@ export function Engineering() {
                   </div>
                 ))}
               </dl>
+
+              <figure
+                className="mt-9 sm:max-w-[26rem]"
+                data-reveal
+                style={{ ['--reveal-delay' as string]: '260ms' }}
+              >
+                <ScrollMedia
+                  base="/media/cf/images/cf02-exploded-system"
+                  alt=""
+                  className="aspect-[16/10] rounded-[4px] border border-paper/10"
+                  drift={40}
+                  scale={[1.04, 1.12]}
+                  sizes="(min-width: 1024px) 26rem, 92vw"
+                />
+                <figcaption className="cf-mono mt-3 text-paper/40">
+                  Infra · dados · lógica · motion · interface — as camadas por baixo de um projeto.
+                </figcaption>
+              </figure>
             </div>
           </div>
 

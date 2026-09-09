@@ -15,5 +15,14 @@ export default defineConfig({
     cssTarget: 'chrome100',
     assetsInlineLimit: 2048,
     reportCompressedSize: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom', 'react-dom/client'],
+          gsap: ['gsap', 'gsap/ScrollTrigger'],
+          lenis: ['lenis'],
+        },
+      },
+    },
   },
 });

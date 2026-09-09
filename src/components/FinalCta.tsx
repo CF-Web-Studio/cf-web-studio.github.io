@@ -21,24 +21,33 @@ export function FinalCta() {
     >
       <div
         ref={artRef}
-        className="absolute inset-0 grid place-items-center"
+        className="absolute inset-0 overflow-hidden"
         style={{ ['--close' as string]: '0' }}
         aria-hidden="true"
       >
-        <svg
-          viewBox="0 0 100 100"
-          className="h-[130%] w-auto max-w-none opacity-[0.13]"
-          aria-hidden="true"
+        {/* CF03 — interface imersiva: a câmera se aproxima conforme o scroll fecha a página */}
+        <img
+          src="/media/cf/images/cf03-immersive-interface-1440.jpg"
+          srcSet="/media/cf/images/cf03-immersive-interface-960.jpg 960w, /media/cf/images/cf03-immersive-interface-1440.jpg 1440w, /media/cf/images/cf03-immersive-interface-1920.jpg 1920w"
+          sizes="100vw"
+          alt=""
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover opacity-[0.22]"
           style={{
-            transform: 'rotate(calc((var(--close) - 0.5) * 26deg)) scale(calc(0.9 + var(--close) * 0.22))',
+            transform:
+              'scale(calc(1.06 + var(--close) * 0.16)) translateY(calc((var(--close) - 0.5) * -3%))',
+            transformOrigin: '60% 45%',
+            willChange: 'transform',
           }}
-          fill="none"
-        >
-          <path d="M 86.44 43.58 A 37 37 0 1 1 62.65 15.23" stroke="#2FA9A2" strokeWidth="0.22" />
-          <path d="M 17.99 55.64 A 32.5 32.5 0 1 1 38.88 80.54" stroke="#F3F1EC" strokeWidth="0.16" />
-          <circle cx="50" cy="50" r="26" stroke="#2FA9A2" strokeWidth="0.1" />
-          <circle cx="50" cy="50" r="44" stroke="#2FA9A2" strokeWidth="0.1" />
-        </svg>
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(70% 60% at 50% 46%, rgba(5,11,22,0.35) 0%, rgba(5,11,22,0.82) 78%, #050b16 100%)',
+          }}
+        />
       </div>
 
       <div className="cf-container relative w-full text-center">

@@ -3,7 +3,7 @@ import { BRAND, WHATSAPP } from '../data/brand';
 import { useReducedMotion, useScrollProgress } from '../lib/hooks';
 import { clamp } from '../lib/motion';
 import { Cta } from './primitives';
-import { SignatureObject } from './SignatureObject';
+import { NeuralCore } from './NeuralCore';
 
 const STATES = ['Ideia', 'Traço', 'Estrutura', 'Matéria'];
 
@@ -49,12 +49,12 @@ export function Hero() {
         style={{ background: 'linear-gradient(to bottom, transparent 55%, #050b16 100%)' }}
       />
 
-      {/* o objeto assinatura */}
-      <SignatureObject
+      {/* CF01 — núcleo neural, protagonista do hero */}
+      <NeuralCore
         progressRef={progressRef}
         fadeRef={fadeRef}
         reduced={reduced}
-        className="absolute inset-y-0 right-0 -z-10 h-full w-full opacity-[0.62] lg:left-auto lg:w-[58%] lg:opacity-100"
+        className="absolute inset-y-0 right-0 -z-10 h-full w-full lg:left-auto lg:w-[64%]"
       />
 
       <div className="cf-container relative z-10 w-full">
