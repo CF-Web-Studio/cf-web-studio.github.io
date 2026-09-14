@@ -1,5 +1,5 @@
 # CF Web Studio — site oficial
-
+(Meu segundo protótipo esse ficou um pouco melhor fora os erros de traveções dessa vez utilizei uma ferramenta do claude para me ajudar em uma tarefa esse projeto não ficou finalizado...)
 Site da **CF Web Studio** (Carlos & Felipe). Conceito: **da ideia à experiência digital**.
 
 Publicado em <https://cf-web-studio.github.io/> pelo GitHub Pages, a partir da branch `main`.
